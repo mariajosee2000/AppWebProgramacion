@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <div class="custom-header">
+    <h2>Perfil</h2>
+    <p>Tu información personal</p>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="profile-content">
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <span>{{ getUserInitial() }}</span>
+      </div>
+      <h3 class="profile-name">{{ user?.name || 'Usuario' }}</h3>
+      <p class="profile-email">{{ user?.email || 'email@example.com' }}</p>
+    </div>
+
+    <!-- Menu Items -->
+    <div class="profile-menu">
+      <div 
+        *ngFor="let item of menuItems" 
+        class="menu-item"
+        (click)="$event.preventDefault()"
+      >
+        <div class="menu-item-left">
+          <ion-icon [name]="item.icon" class="menu-icon"></ion-icon>
+          <span class="menu-label">{{ item.label }}</span>
+        </div>
+        <ion-icon name="chevron-forward-outline" class="menu-arrow"></ion-icon>
+      </div>
+    </div>
+
+    <!-- Logout Button -->
+    <ion-button 
+      expand="block" 
+      fill="outline" 
+      class="btn-logout"
+      (click)="confirmLogout()"
+    >
+      <ion-icon name="log-out-outline" slot="start"></ion-icon>
+      Cerrar Sesión
+    </ion-button>
+
+    <!-- App Info -->
+    <div class="app-info">
+      <p>Versión 1.0.0</p>
+    </div>
+  </div>
+</ion-content>

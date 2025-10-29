@@ -1,0 +1,7 @@
+{
+  "name": "pedidos-fast-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

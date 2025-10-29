@@ -1,0 +1,69 @@
+<ion-header class="ion-no-border">
+  <div class="custom-header">
+    <h2>Inicio</h2>
+    <p>Encuentra tu comida favorita</p>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- Search Bar -->
+  <div class="search-container">
+    <div class="search-bar">
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-input 
+        placeholder="Buscar restaurantes o comida..."
+        [(ngModel)]="searchQuery"
+        (ionInput)="onSearch($event)"
+      ></ion-input>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="categories-scroll">
+    <ion-chip 
+      *ngFor="let category of categories"
+      [class.active]="selectedCategory === category.name"
+      (click)="onCategoryChange(category.name)"
+      class="category-chip"
+    >
+      <span class="category-icon">{{ category.icon }}</span>
+      <ion-label>{{ category.name }}</ion-label>
+    </ion-chip>
+  </div>
+
+  <!-- Restaurants List -->
+  <div class="restaurants-list">
+    <div *ngFor="let restaurant of filteredRestaurants" class="restaurant-card">
+      <div class="restaurant-image">
+        <div class="image-emoji">{{ restaurant.image }}</div>
+        <ion-button 
+          fill="clear" 
+          class="favorite-btn"
+          (click)="toggleFavorite(restaurant)"
+        >
+          <ion-icon 
+            [name]="restaurant.isFavorite ? 'star' : 'star-outline'"
+            [class.favorited]="restaurant.isFavorite"
+          ></ion-icon>
+        </ion-button>
+      </div>
+      
+      <div class="restaurant-info">
+        <h3 class="restaurant-name">{{ restaurant.name }}</h3>
+        <p class="restaurant-meta">
+          {{ restaurant.cuisine }} • {{ restaurant.deliveryTime }} • {{ formatPrice(restaurant.deliveryFee) }} envío
+        </p>
+        <div class="restaurant-rating">
+          <ion-icon name="star" color="warning"></ion-icon>
+          <span>{{ restaurant.rating }} ({{ restaurant.reviewsCount }}+ reseñas)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="filteredRestaurants.length === 0" class="empty-state">
+      <ion-icon name="restaurant-outline"></ion-icon>
+      <p>No se encontraron restaurantes</p>
+    </div>
+  </div>
+</ion-content>

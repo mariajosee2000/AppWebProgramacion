@@ -1,0 +1,188 @@
+.custom-header {
+  background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+  color: white;
+  padding: 60px 20px 30px;
+
+  h2 {
+    font-size: 28px;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+
+  p {
+    opacity: 0.9;
+    font-size: 14px;
+  }
+}
+
+// Search Bar
+.search-container {
+  padding: 20px;
+  background: white;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 2px solid #FF6B35;
+  border-radius: 25px;
+  padding: 8px 20px;
+  gap: 10px;
+
+  ion-icon {
+    font-size: 20px;
+    color: #FF6B35;
+  }
+
+  ion-input {
+    --padding-start: 0;
+    --padding-end: 0;
+    font-size: 15px;
+
+    &::placeholder {
+      color: #999;
+    }
+  }
+}
+
+// Categories
+.categories-scroll {
+  display: flex;
+  gap: 10px;
+  padding: 15px 20px;
+  overflow-x: auto;
+  background: white;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.category-chip {
+  border: 2px solid #FF6B35;
+  border-radius: 20px;
+  --background: white;
+  --color: #FF6B35;
+  height: 40px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &.active {
+    --background: #FF6B35;
+    --color: white;
+    background: #FF6B35;
+
+    ion-label {
+      color: white;
+    }
+  }
+
+  .category-icon {
+    margin-right: 4px;
+    font-size: 16px;
+  }
+}
+
+// Restaurants List
+.restaurants-list {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.restaurant-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.restaurant-image {
+  position: relative;
+  height: 180px;
+  background: linear-gradient(135deg, #FFB088 0%, #FF8C42 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .image-emoji {
+    font-size: 60px;
+  }
+
+  .favorite-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    --background: white;
+    --border-radius: 50%;
+    --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    margin: 0;
+    padding: 0;
+
+    ion-icon {
+      font-size: 18px;
+      color: #FF6B35;
+
+      &.favorited {
+        color: #FFB800;
+      }
+    }
+  }
+}
+
+.restaurant-info {
+  padding: 15px;
+}
+
+.restaurant-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.restaurant-meta {
+  color: #666;
+  font-size: 13px;
+  margin: 0 0 8px 0;
+}
+
+.restaurant-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+
+  ion-icon {
+    font-size: 16px;
+  }
+}
+
+// Empty State
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+
+  ion-icon {
+    font-size: 80px;
+    color: #ddd;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #999;
+    font-size: 16px;
+  }
+}

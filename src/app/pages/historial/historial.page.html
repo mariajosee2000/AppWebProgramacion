@@ -1,0 +1,32 @@
+<ion-header class="ion-no-border">
+  <div class="custom-header">
+    <h2>Historial</h2>
+    <p>Tus pedidos anteriores</p>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="history-content" *ngIf="orders.length > 0">
+    <div *ngFor="let order of orders" class="history-item">
+      <div class="history-header">
+        <span class="history-date">{{ formatDate(order.date) }}</span>
+        <ion-badge [color]="getStatusColor(order.status)" class="order-status">
+          {{ getStatusText(order.status) }}
+        </ion-badge>
+      </div>
+      
+      <h3 class="history-restaurant">{{ order.restaurant }}</h3>
+      <p class="history-items">{{ order.items }}</p>
+      <p class="history-total">Total: {{ formatPrice(order.total) }}</p>
+    </div>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="orders.length === 0" class="empty-state">
+    <ion-icon name="receipt-outline"></ion-icon>
+    <p>No tienes pedidos aún</p>
+    <ion-button routerLink="/tabs/inicio" fill="outline" class="btn-browse">
+      Hacer un Pedido
+    </ion-button>
+  </div>
+</ion-content>
