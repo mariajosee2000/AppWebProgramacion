@@ -7,11 +7,13 @@
     font-size: 28px;
     margin-bottom: 5px;
     font-weight: bold;
+    color: white;
   }
 
   p {
     opacity: 0.9;
     font-size: 14px;
+    color: white;
   }
 }
 
@@ -38,10 +40,11 @@
   ion-input {
     --padding-start: 0;
     --padding-end: 0;
+    --color: #333;
     font-size: 15px;
 
-    &::placeholder {
-      color: #999;
+    &::part(native) {
+      color: #333 !important;
     }
   }
 }
@@ -69,6 +72,11 @@
   cursor: pointer;
   transition: all 0.3s;
 
+  ion-label {
+    color: #FF6B35;
+    font-weight: 500;
+  }
+
   &.active {
     --background: #FF6B35;
     --color: white;
@@ -76,6 +84,10 @@
 
     ion-label {
       color: white;
+    }
+
+    .category-icon {
+      filter: brightness(2);
     }
   }
 
@@ -91,6 +103,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  background: #f5f5f5;
 }
 
 .restaurant-card {
@@ -167,6 +180,11 @@
 
   ion-icon {
     font-size: 16px;
+    color: #FFB800;
+  }
+
+  span {
+    color: #333;
   }
 }
 
